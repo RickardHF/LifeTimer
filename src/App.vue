@@ -1,5 +1,6 @@
 <template>
   <section class="highlighted-section" key="checkform">
+    <h1 class="gradient-header">How long do I have to live?</h1>
     <InformationForm></InformationForm>
   </section>
 </template>
@@ -29,11 +30,20 @@ export default {
 
 }
 
+.gradient-header {
+    background: -webkit-linear-gradient(300deg, #ddd9d5 20%, #f8cfcf 70%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -webkit-box-decoration-break: clone;
+}
+
 .highlighted-section {
   padding-top: 2rem;
   padding-bottom: 2rem;
   justify-content: center;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: #FFFFFF25;
 }
 

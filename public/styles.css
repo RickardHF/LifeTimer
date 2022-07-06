@@ -1,7 +1,10 @@
 :root {
     --text-background: #FFF;
     --text-color: #000;
-    --dark-color: rgb(60, 21, 122)
+    --text-color-dis: rgb(133, 133, 133);
+    --dark-color: rgb(60, 21, 122);
+    --dark-color-lig: rgb(105, 42, 206);
+    --dark-color-dis: rgb(91, 71, 124);
 }
 
 
