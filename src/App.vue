@@ -1,16 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <section class="highlighted-section" key="checkform">
+    <InformationForm></InformationForm>
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import InformationForm from './components/InformationForm.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    InformationForm
+}
 }
 </script>
 
@@ -22,5 +23,18 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
 }
+
+.highlighted-section {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  justify-content: center;
+  display: flex;
+  background-color: #FFFFFF25;
+}
+
 </style>
