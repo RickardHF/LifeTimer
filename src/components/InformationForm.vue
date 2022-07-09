@@ -60,7 +60,7 @@
       <button :onclick="goback"> ⤺ Go Back</button>
     </div>
     <div class="form-filling" v-else>
-      <h2 class="gradient-header">How long do I have to live?</h2>
+      <h2>How long do I have to live?</h2>
       <p>Use our lifeexpectancy calculator to estimate how long you have left to live!</p>
       <br/>
       <div class="information-row">
@@ -81,11 +81,11 @@
         <div class="information-cont-col">
           <div class="information-cont-row">
             <input type="radio" id="man" :value="true" v-model="man"/>
-            <label for="man">♂ Male</label>
+            <label for="man">♂Male</label>
           </div>
           <div class="information-cont-row">
             <input type="radio" id="woman" :value="false" v-model="man" title="Female"/>
-            <label for="woman">♀ Female</label>
+            <label for="woman">♀Female</label>
           </div>
         </div>
       </div>
