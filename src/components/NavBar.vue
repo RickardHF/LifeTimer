@@ -14,7 +14,7 @@
                 <li><a href="/#home">Home</a></li>
                 <li><a href="/#calculator">Calculator</a></li>
                 <li><a href="/#faq">FAQ</a></li>
-                <li><a href="/#insqoutes">Inspirational Qoutes</a></li>
+                <li><a href="/#inspqoutes">Inspirational Qoutes</a></li>
             </ul>
         </div>
     </details>
