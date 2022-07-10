@@ -1,6 +1,14 @@
 <template>
   <header>
-    <h3>How long to live</h3>
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+        <path d="M15.8 41h16.4v-6.35q0-3.5-2.375-6.025Q27.45 26.1 24 26.1t-5.825 2.525Q15.8 31.15 15.8 34.65ZM8 44v-3h4.8v-6.35q0-3.5 1.825-6.425T19.7 24q-3.25-1.3-5.075-4.25Q12.8 16.8 12.8 13.3V7H8V4h32v3h-4.8v6.3q0 3.5-1.85 6.45T28.3 24q3.25 1.3 5.075 4.225Q35.2 31.15 35.2 34.65V41H40v3Z"/>
+      </svg>
+      <h3>
+        How long will I live?
+      </h3>
+    </div>
+    <NavBar/>
   </header>
   <section class="std-section" id="home">
     <h1>How long will I live?</h1>
@@ -94,7 +102,7 @@
     <figure>
       <blockquote class="citation">
         <h2>
-          "In your actions, don’t procrastinate. In your conversations, don’t confuse. In your thoughts, don’t wander. In your soul, don’t be passive or aggressive. In your life, don’t be all about business."
+          "In your actions, don't procrastinate. In your conversations, don't confuse. In your thoughts, don't wander. In your soul, don't be passive or aggressive. In your life, don't be all about business."
         </h2>
       </blockquote>
       <cite>Marcus Aurelius</cite>
@@ -132,25 +140,51 @@
         Inspirational Qoutes
       </a>
     </div>
+    <br/>
+    <br/>
+    <div class="logo">
+      <svg xmlns="http://www.w3.org/2000/svg" height="1.5rem" viewBox="0 0 48 48">
+        <path d="M15.8 41h16.4v-6.35q0-3.5-2.375-6.025Q27.45 26.1 24 26.1t-5.825 2.525Q15.8 31.15 15.8 34.65ZM8 44v-3h4.8v-6.35q0-3.5 1.825-6.425T19.7 24q-3.25-1.3-5.075-4.25Q12.8 16.8 12.8 13.3V7H8V4h32v3h-4.8v6.3q0 3.5-1.85 6.45T28.3 24q3.25 1.3 5.075 4.225Q35.2 31.15 35.2 34.65V41H40v3Z"/>
+      </svg>
+      <h4>
+        How long will I live?
+      </h4>
+    </div>
   </footer>
 </template>
 
 <script>
 import InformationForm from './components/InformationForm.vue'
+import NavBar from './components/NavBar.vue'
 
 export default {
   name: 'App',
   components: {
-    InformationForm
+    InformationForm,
+    NavBar
 }
 }
 </script>
 
 <style>
 
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 header {
-  background: linear-gradient(180deg, var(--text-background) 85%, var(--dark-color-lig));
+  /*background: linear-gradient(180deg, var(--text-background) 85%, var(--dark-color-lig));*/
+  background-color: var(--text-background);
+  filter: drop-shadow(.3rem .3rem .6rem #000000a0);
   margin-bottom: 4rem;
+  color: var(--dark-color);
+  display: flex;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .page-links {
@@ -162,31 +196,6 @@ header {
   font-weight: bolder;
   text-decoration: none;
   color: var(--dark-color);
-}
-
-details {
-  width: 100%;
-  max-width: 650px;
-  margin-top: 2rem;
-}
-
-details p {
-  width: 100%;
-}
-
-details>summary { 
-  list-style: none;
-}
-summary::after {
-  content: ' ►';
-}
-details[open] summary:after {
-  content: " ▼";
-}
-
-summary {
-  font-size: larger;
-  font-weight: bold;
 }
 
 .faq-header {
@@ -264,6 +273,8 @@ footer {
   background-color: var(--text-background);
   padding-top: 2rem;
   padding-bottom: 2rem;
+  color: var(--dark-color);
 }
+
 
 </style>

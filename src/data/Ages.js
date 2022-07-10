@@ -1,3 +1,13 @@
+export function getSortedList(){
+    return averageAges.sort(comp);
+}
+
+function comp(left, right) {
+    if(left.name === right.name) return 0;
+    else if (left.name > right.name) return 1;
+    return -1;
+}
+
 export const averageAges = [
     { name: 'Hong Kong', averageMen: 82.9, averageWomen: 88.0 },
     { name: 'Iceland', averageMen: 81.7, averageWomen: 84.5 },

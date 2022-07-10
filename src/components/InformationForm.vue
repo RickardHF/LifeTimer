@@ -1,11 +1,12 @@
 <template>
   <div class="information-form">
     <div class="form-result" v-if="expectedDeath">
-      <div class="overlived" v-if="deathOverTime">
-        <h3>Congratulations!</h3>
-        <h4>You have already lived longer than the average in your country</h4>
-        <h3>You have {{daysInExcess}}</h3>
+      <div class="overlived pretty-centralized" v-if="deathOverTime">
+        <h1>Congratulations!</h1>
+        <p>You have already surpassed the life expectancy of your country.</p>
+        <p>According to the life expectancy of your country you would have died at the {{prettyExpectedDeath}}</p>
         <div class="countdown-calender">
+          <h3>Days in excess:</h3>
           <div class="calender-item">
             {{daysInExcess.years}}
             <p>Years</p>
@@ -28,11 +29,11 @@
           </div>
         </div>
       </div>
-      <div class="time-to-go" v-else>
-        <h1 class="gradient-header">
-          Watch as your time is running out!
+      <div class="time-to-go  pretty-centralized" v-else>
+        <h1>
+          Your Results are Ready
         </h1>
-        <p>You will die at {{expectedDeath}}</p>
+        <p>According to the life expectancy of your country you will die at the {{prettyExpectedDeath}}</p>
         <div class="countdown-calender">
           <h3>Remaining time:</h3>
           <div class="calender-item">
@@ -60,8 +61,8 @@
       <button :onclick="goback"> ⤺ Go Back</button>
     </div>
     <div class="form-filling" v-else>
-      <h2>How long do I have to live?</h2>
-      <p>Use our lifeexpectancy calculator to estimate how long you have left to live!</p>
+      <h1>How long do I have to live?</h1>
+      <h3>Use our lifeexpectancy calculator to estimate how long you have left to live!</h3>
       <br/>
       <div class="information-row">
         <label for="nationality">Nationality</label>
@@ -97,18 +98,32 @@
 
 <script>
 
-import { averageAges } from '../data/Ages'
+import { getSortedList } from '../data/Ages'
 
 export default {
   data() {
     return {
-      avgs: averageAges,
+      avgs: getSortedList(),
       selectedCountry: null,
       dateOfBirth: null,
       man: null,
       expectedDeath: null,
       now: Date.now(),
-      timer: null
+      timer: null,
+      months: {
+        0: "January",
+        1: "February",
+        2: "March",
+        3: "April",
+        4: "May",
+        5: "June",
+        6: "July",
+        7: "August",
+        8: "September",
+        9: "October",
+        10: "November",
+        11: "December"
+      }
     };
   },
   computed: {
@@ -138,7 +153,14 @@ export default {
         hours: hours,
         minutes: minutes,
         seconds: seconds
-      }
+      };
+    },
+    prettyExpectedDeath(){
+      let day = this.expectedDeath.getDate();
+      let month = this.expectedDeath.getMonth();
+      let year = this.expectedDeath.getFullYear();
+
+      return `${day}${this.dayEnding(day)} of ${this.months[month]} ${year}`
     },
     daysInExcess(){
       console.log(this.expectedDeath)
@@ -164,6 +186,12 @@ export default {
     }
   },
   methods: {
+    dayEnding(day) {
+      if ([1, 21, 31].includes(day)) return "st";
+      else if ([2, 22].includes(day)) return "nd";
+      else if ([3, 23].includes(day)) return "rd";
+      return "th";
+    },  
     calculateRemainingTime(){
       if(this.man){
         let dob = new Date(this.dateOfBirth);
@@ -191,6 +219,27 @@ export default {
 </script>
 
 <style>
+
+
+.pretty-centralized {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+} 
+
+.pretty-centralized p {
+  text-align: left;
+  font-size: larger;
+}
+
+.infop {
+  text-align: left;
+  font-size: larger;
+}
+
+.information-form h1{
+  color: var(--dark-color);
+}
 
 .countdown-calender {
   display: flex;
